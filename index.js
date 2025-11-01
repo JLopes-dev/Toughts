@@ -5,6 +5,9 @@ const FileStore = require('session-file-store')(session);
 const flash = require('express-flash');
 const conn = require('./db/conn')
 
+const User = require('./models/User');
+const Tought = require('./models/Tought')
+
 const app = express();
 const PORT = 8081;
 
