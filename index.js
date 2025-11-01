@@ -8,9 +8,14 @@ const conn = require('./db/conn')
 const User = require('./models/User');
 const Tought = require('./models/Tought')
 
+const toughtRouter = require('./routes/toughtsRoutes');
+const ToughtsController = require('./controllers/ToughtsController');
+
 const app = express();
 const PORT = 8081;
 
+app.use('/toughts', toughtRouter);
+app.get('/', ToughtsController.showToughts);
 
 app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
