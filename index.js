@@ -8,13 +8,15 @@ const conn = require('./db/conn')
 const User = require('./models/User');
 const Tought = require('./models/Tought')
 
-const toughtRouter = require('./routes/toughtsRoutes');
+const toughtRoutes = require('./routes/toughtsRoutes');
+const authRoutes = require('./routes/authRoutes')
 const ToughtsController = require('./controllers/ToughtsController');
 
 const app = express();
 const PORT = 8081;
 
-app.use('/toughts', toughtRouter);
+app.use('/toughts', toughtRoutes);
+app.use('/', authRoutes);
 app.get('/', ToughtsController.showToughts);
 
 app.engine('handlebars', exphbs.engine());
